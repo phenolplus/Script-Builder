@@ -1,17 +1,13 @@
 #include <iostream>
-#include <gtk/gtk.h>
+
+#include "GraphicShell.h"
+#include "Parser.h"
+#include "ScriptGen.h"
 
 int main(int argc, char* argv[])
 {
     std::cout<<"Hello world"<<std::endl;
-
-    GtkWidget *window;
-
-    gtk_init(&argc, &argv);
-    window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-    gtk_window_set_title(GTK_WINDOW(window), "Hello！ GTK+！");
-    gtk_widget_show(window);
-    gtk_main();
+    GraphicShell* shell = new GraphicShell(argc,argv);
 
     return 0;
 }
