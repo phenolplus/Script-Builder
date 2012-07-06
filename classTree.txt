@@ -1,0 +1,13 @@
+********************
+*    Class Tree    *
+********************
+
+ScriptBuilder.cpp ---> main program
+
+GraphicShell ---> Main class for GUI
+
+Parser ---> Parsing utilities are implemented in this class
+	|
+	|__InterCode ---> Structure of Intermediate Code
+
+ScriptGen ---> .*sh script generator
