@@ -9,31 +9,42 @@ using namespace std;
 
 class InterCode
 {
-public:
-    InterCode();
-    ~InterCode();
 
-    void addCommand();
-    void addLoop();
-    void addPipe();
-
-    void addVar();
-
-    void toFile();
-
-    void printStat();
-
-
-private:
-    int size;
-    class command
-    {
-    public:
-        command(char,char,char);
-    private:
-        char clist[3];
-    };
 };
+
+
+class Statement
+{
+public :
+    Statement();
+    ~Statement();
+
+    int i_type,o_type;
+
+    void toString();
+
+private :
+
+};
+
+class Loop : public Statement
+{
+public :
+
+private :
+
+
+};
+
+class Command : public Statement
+{
+public :
+
+private :
+
+
+};
+
 
 
 #endif
