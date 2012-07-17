@@ -3,7 +3,11 @@
 
 #include "GraphicShell.h"
 
-GraphicShell::GraphicShell(int argc, char** argv) {
+GraphicShell::GraphicShell() {
+
+}
+
+void GraphicShell::init(int argc, char** argv) {
     GtkWidget *window;
 
     gtk_init(&argc, &argv);
@@ -13,5 +17,4 @@ GraphicShell::GraphicShell(int argc, char** argv) {
                      G_CALLBACK(gtk_main_quit), NULL);
     gtk_widget_show(window);
     gtk_main();
-
 }

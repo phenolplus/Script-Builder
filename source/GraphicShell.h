@@ -4,8 +4,10 @@
 class GraphicShell
 {
 public:
-    GraphicShell(int,char**);
+    GraphicShell();
     ~GraphicShell();
+
+    void init(int,char**);
 private:
 
 
