@@ -23,6 +23,17 @@ class Type
     static const int COMMAND = 0; // a command statement
     static const int LOOP    = 1; // a loop structure
     static const int BUILTIN = 2; // a shell built-in
+
+    static string typeString(int t) {
+        switch (t) {
+            case 0:{
+                return string("normanl");
+            }
+            default:{
+                return string("error parsing");
+            }
+        }
+    }
 };
 
 class Statement // virtual class for statements (bash commands)
