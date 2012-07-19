@@ -4,16 +4,27 @@
 #include "Parser.h"
 #include "ScriptGen.h"
 
+using namespace std;
+
 int main(int argc, char* argv[])
 {
-    std::cout<<"Hello world"<<std::endl;
+    cout<<"Hello world"<<endl;
     GraphicShell* shell = new GraphicShell();
     // do initialization here
 
+    /** testting goes here **/
     Command* test = new Command();
     test->setCommand("ls");
     test->setArgList("-a -l");
-    std::cout<<test->toString()<<std::endl;
+    cout<<test->toString()<<endl;
+
+    cout<<"\n"<<endl;
+
+    InterCode* ic = new InterCode();
+    ic->insert(test);
+
+    cout<<ic->toString()<<endl;
+
 
     // control given to graphic shell
     shell->init(argc,argv);

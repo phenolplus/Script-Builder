@@ -7,10 +7,10 @@
 
 using namespace std;
 
-class Type
+class Type // wrapper and constance class
 {
     public :
-    // type of input & output
+    // types of output
     static const int NONE       = 0; // normal statement
     static const int ARGUMENT   = 1; // the output is passed as argument to next statement
     static const int PIPELINE   = 2; // the output is pipelined to next statement
@@ -24,16 +24,46 @@ class Type
     static const int LOOP    = 1; // a loop structure
     static const int BUILTIN = 2; // a shell built-in
 
-    static string typeString(int t) {
+    // convert type number to human readable string
+    static string iotypeString(int t) {
         switch (t) {
             case 0:{
                 return string("normanl");
+            }
+            case 1:{
+                return string("pass as argument");
+            }
+            case 2:{
+                return string("pipelined to next command");
+            }
+            case 3:{
+                return string("redirected to file (cover)");
+            }
+            case 4:{
+                return string("redirected to file (padding)");
+            }
+            case 5:{
+                return string("assigned to variable");
             }
             default:{
                 return string("error parsing");
             }
         }
     }
+
+    static string stypeString(int t) {
+            switch (t){
+                case 0:{
+                    return string("command");
+                }
+                case 1:{
+                    return string("loop");
+                }
+                case 2:{
+                    return string("built-in");
+                }
+            }
+        }
 };
 
 class Statement // virtual class for statements (bash commands)
@@ -60,11 +90,10 @@ public:
     ~InterCode();
 
 
-    void insert(Statement*); // insert new statement
+    int insert(Statement*); // insert new statement
     bool insert(Statement*,int); // insert new statement at certain entry
 
-    void remove();
-    bool remove(int);
+    bool remove(int); // remove a statement
 
     Statement* readCurrent(); // returns the current statement
     Statement* readStatement(int); // returns a specific statement
@@ -75,10 +104,8 @@ public:
 private:
     int size,cursor; // size of IC
 
-    vector< int > typeEntry; // list of statement types
-    vector< int > loopEntry; // list of loop locations
-
     vector< Statement* > code; // list of statements
+
 };
 
 class Loop : public Statement // control statments (if, while, for...)
@@ -111,6 +138,7 @@ public :
     Command();
     ~Command();
 
+    //setters
     void setCommand(string);
     void setArgList(string);
 
