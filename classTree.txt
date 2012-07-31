@@ -8,6 +8,10 @@ GraphicShell ---> Main class for GUI
 
 Parser ---> Parsing utilities are implemented in this class
 	|
-	|__InterCode ---> Structure of Intermediate Code
+	|__InterCode ---> Structure of Intermediate Code, list of Statements
 
 ScriptGen ---> .*sh script generator
+
+Statement::Command --> Type of different statements
+         ::Loop
+	 ::Builtin

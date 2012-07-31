@@ -1,11 +1,16 @@
 ***********************
 *      TODO list      *
 ***********************
-Job: Setup Intermediate Code format
-Job: List 1st proiority commands
-Class: Intermediate Code
-Class: Script Generator
-Program: CLI script builder with Intermediate Code input
+Finish class LOOP
+Start working on class SriptGen
+
+
+***********************
+*        Usage        *
+***********************
+make     <--- build executable
+make run <--- build and run
+make clean <- clean up obj-files
 
 ***********************
 * System Architecture *

@@ -1,20 +1,12 @@
 ***** Currently Working *****
 
-The class of IC is a list of commands.
-Each command contains 3 parameters (numbers: 0~255).
-The first char represents the type of the command.
-The second and third are arguments.
-There are many different types; currently there are
-0 = Loop
-1 = Variable
-2 = Pipeline
-(special operations)...(commands)
-32 = ls (command)
-... more could be added.
+The class of IC is a list of statements.
+There are 3 classes derived from class STATEMENT: COMMAND, LOOP, BUILTIN.
+Basic commands are implemented in class COMMAND.
+For loops and while loops are implmented in class LOOP. This class contains a pointer to a internal IC object.
+IO redirection and global variable settings are done by class BUILTIN.
 
-For a command, the first argument is its input, the second the output.
-ex: ls -al /home/ --> type = 32, arg1 = "-al /home/", arg2 = SCREEN
+The statements are connected by a list of pointers, each pointing to one statement.
+Statements are created seperatly by the PARSER layer and maintained by its IC container. Mermory should be freed only by class IC.
 
-For a operation, the arguments are specially designed.
-ex. for loop --> arg1 = start/stop, arg2 = identifier.
-ex. pipeline --> arg1 = output(first stage), arg2 = input(second stage)
+These classes should always be created by pointers.
