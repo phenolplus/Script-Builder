@@ -1,12 +1,18 @@
 ***** Currently Working *****
+***** APIs *****
+(go read header file...)
 
-The class of IC is a list of statements.
-There are 3 classes derived from class STATEMENT: COMMAND, LOOP, BUILTIN.
+***** Intro *****
+The class of InterCode(IC) is a list of statements.
+There are 3 classes derived from class STATEMENT: COMMAND, LOOP, EXPRESSION.
 Basic commands are implemented in class COMMAND.
-For loops and while loops are implmented in class LOOP. This class contains a pointer to a internal IC object.
-IO redirection and global variable settings are done by class BUILTIN.
+If block and while loops are implmented in class LOOP. This class contains a pointer to a internal IC object.
+For-loop has its own class derived from LOOP.
+IO redirection and global variable settings are done in each command ITSELF!!
+Logical expressions are done in class EXPRESSION. A single basic atom sentence is implemented in class EXPRESSIONATOM.
 
 The statements are connected by a list of pointers, each pointing to one statement.
 Statements are created seperatly by the PARSER layer and maintained by its IC container. Mermory should be freed only by class IC.
+Memory should always be allocated by The Parser; memory should always be freed by its container.
 
 These classes should always be created by pointers.

@@ -143,34 +143,40 @@ string Command::toString() {
 }
 
 /** ********** class ExpressionAtom ********** */
-ExpressionAtom::ExpressionAtom() {
-
-}
-
-ExpressionAtom::~ExpressionAtom() {
-
-}
-
-int ExpressionAtom::getType() {
-    return Type::EXPATOM;
-}
-
-// human readable output
-string ExpressionAtom::toString() {
-    string content = "type = expression atom\n";
-    content += " ==> output type is ";
-    content += Type::iotypeString(Statement::o_type);
-
-    return content;
-}
-
-/** ********** class ExpressionAtom ********** */
 Expression::Expression() {
+
+}
+
+Expression::Expression(bool isAND) {
 
 }
 
 Expression::~Expression() {
 
+}
+
+void Expression::setIsANDBinded(bool is) {
+
+}
+
+void Expression::pushItem(Expression* expin) {
+
+}
+
+bool Expression::pushItem(Expression* expin, int at) {
+    return false;
+}
+
+bool Expression::isANDBinded() {
+    return bindingType;
+}
+
+Expression* Expression::getItemAt(int at) {
+    return NULL;
+}
+
+int Expression::getDepth() {
+    return 0;
 }
 
 int Expression::getType() {
@@ -186,7 +192,72 @@ string Expression::toString() {
     return content;
 }
 
+/** ********** class ExpressionAtom ********** */
+ExpressionAtom::ExpressionAtom() {
+
+}
+
+ExpressionAtom::ExpressionAtom(string Lop,int option) {
+
+}
+
+ExpressionAtom::ExpressionAtom(string Lop,string Rop,int option) {
+
+}
+
+ExpressionAtom::~ExpressionAtom() {
+
+}
+
+bool ExpressionAtom::setOperandL(string Lop,int option) {
+    return false;
+}
+
+bool ExpressionAtom::setOperandR(string Rop) {
+    return false;
+}
+
+bool ExpressionAtom::setOperand(string Lop, string Rop, int option) {
+    return false;
+}
+
+string ExpressionAtom::getOperandL() {
+    return operand_l;
+}
+
+string ExpressionAtom::getOperandR() {
+    return operand_r;
+}
+
+int ExpressionAtom::getOperator() {
+    return op_type;
+}
+
+bool ExpressionAtom::isUnary() {
+    return unary;
+}
+
 /** ********** class Loop ********** */
+Loop::Loop() {
+
+}
+
+Loop::Loop(int) {
+
+}
+
+Loop::~Loop() {
+
+}
+
+void Loop::setLoopType(int) {
+
+}
+
+void Loop::assignInvariant(Expression* invar) {
+
+}
+
 int Loop::getType() {
     return Type::LOOP;
 }
@@ -196,4 +267,39 @@ string Loop::toString() {
     return string("this is a loop\n");
 }
 
+/** ********** class ForLoop ********** */
+ForLoop::ForLoop() {
 
+}
+
+ForLoop::ForLoop(vector<string> delist) {
+
+}
+
+ForLoop::~ForLoop() {
+
+}
+
+void ForLoop::addToList(string item) {
+
+}
+
+bool ForLoop::removeFromList(string item) {
+   return false;
+}
+
+bool ForLoop::removeFromList(int index) {
+    return false;
+}
+
+void ForLoop::clearList() {
+
+}
+
+int ForLoop::lengthOfList() {
+    return 0;
+}
+
+string ForLoop::getItem(int index) {
+    return string("");
+}

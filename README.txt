@@ -1,9 +1,10 @@
 ***********************
 *      TODO list      *
 ***********************
-Finish class LOOP
-Start working on class SriptGen
+Done InterCode.h
+Need to fillup implementation in .cpp file
 
+Start working on other parts !!!
 
 ***********************
 *        Usage        *

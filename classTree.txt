@@ -13,5 +13,7 @@ Parser ---> Parsing utilities are implemented in this class
 ScriptGen ---> .*sh script generator
 
 Statement::Command --> Type of different statements
-         ::Loop
-	 ::Builtin
+         ::Loop --> loops, including if-else
+		::ForLoop --> specially designed for for-loop
+	 ::Expression --> list(tree) of atoms
+		::ExpressionAtom --> atom logical expression
